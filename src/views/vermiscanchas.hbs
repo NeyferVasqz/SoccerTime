@@ -1,0 +1,30 @@
+
+<style>
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin:
+  20px; width: 300px; text-align: center; display: inline-block; } img {
+  max-width: 100%; height: 250px; border-radius: 4px; object-fit: cover; }
+  .c2{
+    background-color: white;
+    border-radius: 10px;
+    width: 700px;
+    margin: 230px;
+    height: 100px;
+    text-align: center;
+  }
+</style>
+{{#each listadoCanchas}}
+  <div class="card">
+    <img src="{{image.secure_url}}" alt="Imagen del producto" />
+    <h5>Nombre del local: {{nombreLocal}}</h5>
+    <p>Ubicacion: {{direccion}}</p>
+    <p>Numero de canchas:{{ncanchas}}</p>
+    <a href="/reservar/{{_id}}" class="btn btn-success">Ver</a>
+    <a href="/editar/{{_id}}" class="btn btn-success">Editar</a>
+    <a href="/eliminar/{{_id}}" class="btn btn-success btn-danger">Eliminar</a>
+  </div>
+{{else}}
+<div class="c2">
+    <h1>Aun no ha registrado ninguna cancha</h1>
+    <a  href="/registrarcancha" class="btn btn-success">registrar cancha</a>
+</div>
+{{/each}}

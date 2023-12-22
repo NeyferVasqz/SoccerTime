@@ -1,0 +1,83 @@
+<style>
+  .container{ margin-top: 200px; justify-content: center; } .imagen{ width:
+  300px; }
+</style>
+<main class="main-content mt-0">
+  <div class="container">
+    <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center" style="justify-content: center; margin-top: 50px; margin-bottom: 50px;">
+      <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="card z-index-0">
+          <div class="card-header text-center pt-4">
+            <img
+              class="imagen"
+              src="{{cancha.image.secure_url}}"
+              alt="Imagen local"
+            />
+            {{#if (eq canchaseleccionada "1")}}
+              <h5>Cancha: {{cancha.infocanchas.namecancha1}}</h5>
+              <h5>Precio: {{cancha.infocanchas.preciocancha1}} COP</h5>
+            {{/if}}
+            {{#if (eq canchaseleccionada "2")}}
+              <h5>Cancha: {{cancha.infocanchas.namecancha2}}</h5>
+              <h5>Precio: {{cancha.infocanchas.preciocancha1}} COP</h5>
+            {{/if}}
+            {{#if (eq canchaseleccionada "3")}}
+              <h5>Cancha: {{cancha.infocanchas.namecancha3}}</h5>
+              <h5>Precio: {{cancha.infocanchas.preciocancha1}} COP</h5>
+            {{/if}}
+          </div>
+          <div class="card-body">
+            <form action="/guardar" method="POST">
+              <input type="hidden" , name="cancha" value="{{canchaseleccionada}}" />
+              <input type="hidden" , name="idusuario" value="{{user._id}}" />
+              <input type="hidden" , name="idcancha" value="{{cancha._id}}" />
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" required>
+              <br>
+              <label for="hora">Hora:</label>
+              <input type="time" id="hora" name="hora" required step="3600">
+              <button type="submit" class="btn btn-primary btn-block btn-lg w-100 mt-4 mb-0">
+                Reservar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>z
+<script>
+    // Obtén la fecha actual en el formato necesario para el atributo 'min'
+    function getCurrentDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const currentDate = `${year}-${month}-${day}`;
+
+      // Establece la fecha mínima directamente en el atributo 'min'
+      document.getElementById('fecha').min = currentDate;
+    }
+
+    // Configura las restricciones de hora
+    function setHourConstraints() {
+      const horaInput = document.getElementById('hora');
+      const now = new Date();
+      const currentHour = now.getHours();
+
+      // Deshabilita las horas antes de las 6 am y después de las 12 am (medianoche)
+      if (currentHour < 6 || currentHour >= 24) {
+        horaInput.min = "06:00";
+        horaInput.max = "23:59";
+      } else {
+        // Si la hora actual está en el rango permitido, establece la hora mínima a la hora actual
+        const formattedCurrentHour = String(currentHour).padStart(2, '0');
+        horaInput.min = `${formattedCurrentHour}:00`;
+        horaInput.max = "23:59";
+      }
+    }
+
+    // Llama a las funciones al cargar la página
+    getCurrentDate();
+    setHourConstraints();
+  </script>

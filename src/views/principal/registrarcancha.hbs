@@ -1,0 +1,117 @@
+<style>
+  .c1{
+    background-color: white;
+    border-radius: 10px;
+    height: 950px;
+    width: 500px;
+    margin-bottom: 20px;
+
+  }
+</style>
+<div class="c1 container mt-5">
+
+  <h1 class="mt-4 mb-4 text-center">Registro de Cancha</h1>
+
+  <form action="/guardarcancha" method="post" enctype="multipart/form-data">
+    <input type="hidden", name="user_id" value="{{user._id}}">
+    <div class="mb-3">
+      <label for="nombreLocal" class="form-label">Nombre del Local:</label>
+      <input
+        type="String"
+        id="nombreLocal"
+        name="nombreLocal"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="direccion" class="form-label">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Número de Canchas:</label>
+      <input
+        type="Number"
+        id="numeroCanchas"
+        name="ncanchas"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el nombre de la
+        cancha 1:</label>
+      <input
+        type="String"
+        id="numeroCanchas"
+        name="namecancha1"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el precio por hora
+        de la cancha 1:</label>
+      <input
+        type="Number"
+        id="numeroCanchas"
+        name="preciocancha1"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el nombre de la
+        cancha 2:</label>
+      <input
+        type="String"
+        id="numeroCanchas"
+        name="namecancha2"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el precio por hora
+        de la cancha 2:</label>
+      <input
+        type="Number"
+        id="numeroCanchas"
+        name="preciocancha2"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el nombre de la
+        cancha 3:</label>
+      <input
+        type="String"
+        id="numeroCanchas"
+        name="namecancha3"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="numeroCanchas" class="form-label">Ingrese el precio por hora
+        de la cancha 3:</label>
+      <input
+        type="Number"
+        id="numeroCanchas"
+        name="preciocancha3"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="imagen">Imagen del Producto:</label>
+      <input type="file" name="imagen" accept="image/*" />
+    </div>
+    {{#each ./user}}
+      <input type="hidden", name="userid" value="{{_id}}">
+    {{/each}}
+    <button type="submit" class="btn btn-success">Registrar Cancha</button>
+  </form>
+</div>

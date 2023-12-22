@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 rounded-0 text-black">
+    <h3>Actualice el precio por hora de la cancha</h3>
+    <form action="/actualizar/precio/{{cancha._id}}" method="post">
+      {{#if (eq cancha.ncanchas 1)}}
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 1</label>
+          <input
+            type="number"
+            name="preciocancha1"
+            value="{{cancha.infocanchas.preciocancha1}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+      {{/if}}
+      {{#if (eq cancha.ncanchas 2)}}
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 1</label>
+          <input
+            type="number"
+            name="preciocancha1"
+            value="{{cancha.infocanchas.preciocancha1}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 2</label>
+          <input
+            type="number"
+            name="preciocancha2"
+            value="{{cancha.infocanchas.preciocancha2}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+      {{/if}}
+      {{#if (eq cancha.ncanchas 3)}}
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 1</label>
+          <input
+            type="number"
+            name="preciocancha1"
+            value="{{cancha.infocanchas.preciocancha1}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 2</label>
+          <input
+            type="number"
+            name="preciocancha2"
+            value="{{cancha.infocanchas.preciocancha2}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+        <div>
+          <label for="title">Ingrese el nuevo precio de la cancha 3</label>
+          <input
+            type="number"
+            name="preciocancha3"
+            value="{{cancha.infocanchas.preciocancha3}}"
+            class="form-control rouded-0 bg-dark text-white"
+            required
+          />
+        </div>
+      {{/if}}
+
+      <button class="btn btn-primary btn-sm mt-2">Guardar</button>
+      <a
+        href="/"
+        class="btn btn-secondary btn-sm mt-2 ml-2"
+      >Cancelar</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.logo{
+  height: 80px;
+  border-radius: 50%;
+}
+.body {
+  background-image: url('/assets/img/fondo.png');
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-attachment: fixed; /* Hace que la imagen de fondo sea fija en la ventana gráfica */
+  color: #000; /* Cambia el color del texto para que sea legible en la imagen de fondo */
+}
